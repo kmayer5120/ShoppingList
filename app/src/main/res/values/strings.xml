@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ShoppingList</string>
+    <string name="btnCalculateText">Calculate</string>
+    <string name="btnAddItemText">+</string>
+    <string name="itemHintText">Item</string>
+    <string name="priceHintText">$0.00</string>
+</resources>
