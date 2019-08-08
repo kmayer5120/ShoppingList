@@ -57,4 +57,10 @@ public class Cart
             total += item.getPrice();
         }
     }
+
+    @Override
+    public String toString()
+    {
+        return String.format("$%.2f", total);
+    }
 }

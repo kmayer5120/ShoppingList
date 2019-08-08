@@ -13,45 +13,51 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayoutV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linearLayoutH"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/tfItem"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvItem"
+                    android:layout_width="167dp"
                     android:layout_height="wrap_content"
+                    android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/itemHintText"
-                    android:autofillHints=""
                     android:inputType="textPersonName" />
 
                 <Spinner
                     android:id="@+id/spQuantity"
-                    android:layout_width="34dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:entries="1 2 3 4 5 6 7 8 9 10" />
+                    android:entries="@array/entries"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
 
                 <EditText
-                    android:id="@+id/tfPrice"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/priceHintText"
-                    android:inputType="numberDecimal" />
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorAccent" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnAddItem"
                 android:layout_width="49dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="256dp"
                 android:layout_marginEnd="64dp"
                 android:layout_weight="1"
@@ -59,6 +65,23 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:layout_weight="1"
+        android:text="@string/totalText"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalculate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/svItems"
+        tools:text="@string/totalText" />
 
     <Button
         android:id="@+id/btnCalculate"
