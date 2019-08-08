@@ -1,11 +1,11 @@
 package com.example.shoppinglist;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Cart
 {
-    private List<Item> items;
+    private ArrayList<Item> items;
     private double total;
 
     public Cart()
@@ -21,12 +21,12 @@ public class Cart
        calculateTotal();
     }
 
-    public List<Item> getItems()
+    public ArrayList<Item> getItems()
     {
         return items;
     }
 
-    public void setItems(List<Item> items)
+    public void setItems(ArrayList<Item> items)
     {
         this.items = items;
         calculateTotal();
@@ -35,6 +35,12 @@ public class Cart
     public void addItem(Item item)
     {
         items.add(item);
+        calculateTotal();
+    }
+
+    public void addItemAtIndex(int index, Item item)
+    {
+        items.add(index, item);
         calculateTotal();
     }
 
@@ -50,17 +56,40 @@ public class Cart
         calculateTotal();
     }
 
-    private void calculateTotal()
+    public void editItemAtIndex(Item editedItem, int index)
+    {
+        if(index > -1)
+        {
+            removeItemAtIndex(index);
+            items.add(index, editedItem);
+        }
+        calculateTotal();
+    }
+
+
+    public void clearItems()
     {
         for(Item item : items)
         {
-            total += item.getPrice();
+            items.remove(item);
+        }
+        calculateTotal();
+    }
+
+    private void calculateTotal()
+    {
+        //Calculates the total cart price for each item in cart
+        total = 0.0;
+        for(Item item : items)
+        {
+            total += item.getPrice() * item.getQuantity();
         }
     }
 
     @Override
     public String toString()
     {
-        return String.format("$%.2f", total);
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return "Total cost: " + formatter.format(total);
     }
 }

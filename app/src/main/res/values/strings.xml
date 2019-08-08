@@ -1,11 +1,19 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name">ShoppingList</string>
+    <string name="app_name">Shopping List</string>
     <string name="btnCalculateText">Calculate</string>
     <string name="btnAddItemText">+</string>
+    <string name="btnRemoveItemText">-</string>
+    <string name="btnEditItem">Edit</string>
+    <string name="cbxIsTaxedText">Tax</string>
     <string name="itemHintText">Item</string>
     <string name="priceHintText">$0.00</string>
     <string name="totalText">$0.00</string>
     <string name="error">Unable to add items</string>
+    <string name="item">Item: </string>
+    <string name="price">Price: </string>
+    <string name="quantity">Quantity: </string>
+    <string name="isTaxed">Taxed: </string>
+    <string name="remove"> </string>
 
     <string-array name="entries">
         <item>1</item>
@@ -18,5 +26,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
 </resources>

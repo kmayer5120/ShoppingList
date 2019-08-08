@@ -1,95 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/svItems"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/linearLayoutV"
+            android:id="@+id/hboxItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/linearLayoutH"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="178dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/itemHintText"
+                android:inputType="text" />
+
+            <Spinner
+                android:id="@+id/spQuantity"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:entries="@array/entries"
+                android:scrollbarStyle="outsideOverlay"
+                android:visibility="visible" />
 
-                <EditText
-                    android:id="@+id/tvItem"
-                    android:layout_width="167dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:hint="@string/itemHintText"
-                    android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/etPrice"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/priceHintText"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:textColor="@color/colorAccent" />
 
-                <Spinner
-                    android:id="@+id/spQuantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/entries"
-                    android:scrollbarStyle="outsideOverlay"
-                    android:visibility="visible"
-                    tools:visibility="visible" />
+            <CheckBox
+                android:id="@+id/cbxIsTaxed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/cbxIsTaxedText"
+                android:textAlignment="gravity"
+                android:textIsSelectable="true"
+                tools:text="@string/cbxIsTaxedText" />
 
-                <EditText
-                    android:id="@+id/tvPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/priceHintText"
-                    android:importantForAutofill="no"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorAccent" />
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/hboxButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="116dp"
+            android:layout_marginEnd="68dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="191dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:text="@string/totalText"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnAddItem"
-                android:layout_width="49dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="256dp"
-                android:layout_marginEnd="64dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="2"
+                android:background="@color/colorPrimary"
                 android:text="@string/btnAddItemText" />
 
+            <Button
+                android:id="@+id/btnRemoveItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="2"
+                android:background="@color/colorPrimary"
+                android:text="@string/btnRemoveItemText" />
+
+            <Button
+                android:id="@+id/btnEditItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="2"
+                android:background="@color/colorPrimary"
+                android:text="@string/btnEditItem" />
+
         </LinearLayout>
-    </ScrollView>
 
-    <TextView
-        android:id="@+id/tvTotal"
-        android:layout_width="74dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        android:layout_weight="1"
-        android:text="@string/totalText"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCalculate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svItems"
-        tools:text="@string/totalText" />
+        <ListView
+            android:id="@+id/lvItems"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:longClickable="true" />
 
-    <Button
-        android:id="@+id/btnCalculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/btnCalculateText"
-        app:layout_constraintBottom_toBottomOf="@+id/svItems"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
