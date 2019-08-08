@@ -5,8 +5,6 @@ import java.util.List;
 
 public class Cart
 {
-
-
     private List<Item> items;
     private double total;
 
@@ -31,6 +29,24 @@ public class Cart
     public void setItems(List<Item> items)
     {
         this.items = items;
+        calculateTotal();
+    }
+
+    public void addItem(Item item)
+    {
+        items.add(item);
+        calculateTotal();
+    }
+
+    public void removeItem(Item item)
+    {
+        items.remove(item);
+        calculateTotal();
+    }
+
+    public void removeItemAtIndex(int index)
+    {
+        items.remove(index);
         calculateTotal();
     }
 

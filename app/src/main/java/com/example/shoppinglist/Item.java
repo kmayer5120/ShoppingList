@@ -3,9 +3,6 @@ package com.example.shoppinglist;
 public class Item
 {
     private String description;
-
-
-
     private double price;
 
     public Item()
