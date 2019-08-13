@@ -39,13 +39,15 @@ public class Item
 
     public double getPrice()
     {
-        return price;
+        return this.price;
     }
+
+    public double getTotalPrice() { return this.totalPrice; }
 
     public void setPrice(double price)
     {
-        calculate();
         this.price = price;
+        calculate();
     }
 
     public void setQuantity(int quantity)
@@ -79,7 +81,7 @@ public class Item
             return String.format("Quantity: %d", this.quantity);
     }
 
-    public String getTotalPrice()
+    public String getFormattedTotalPrice()
     {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
 

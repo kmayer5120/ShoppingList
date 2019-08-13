@@ -38,12 +38,6 @@ public class Cart
         calculateTotal();
     }
 
-    public void addItemAtIndex(int index, Item item)
-    {
-        items.add(index, item);
-        calculateTotal();
-    }
-
     public void removeItem(Item item)
     {
         items.remove(item);
@@ -82,7 +76,7 @@ public class Cart
         total = 0.0;
         for(Item item : items)
         {
-            total += item.getPrice() * item.getQuantity();
+            total += item.getTotalPrice();
         }
     }
 

@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.NumberFormat;
+
 
 public class MainActivity extends AppCompatActivity
 {
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         tvTotal = findViewById(R.id.tvTotal);
 
         btnRemove.setVisibility(View.GONE);
+        btnEdit.setVisibility(View.GONE);
         lvItems.setLongClickable(true);
 
         tvTotal.setText(cart.toString());
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity
 
                 //handle visibility of corresponding buttons
                 btnRemove.setVisibility(View.GONE);
-                btnEdit.setVisibility(View.VISIBLE);
+                btnEdit.setVisibility(View.GONE);
                 btnAdd.setVisibility(View.VISIBLE);
 
                 clearControls();
@@ -116,11 +119,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //DEBUG
-                //Toast.makeText(adapter.getContext(), item.getDescription(), Toast.LENGTH_LONG).show();
+
                 //get edited item from the controls
                 String description = String.valueOf(etDescription.getText());
-                double price = Double.parseDouble(String.valueOf(etPrice.getText()));
+                double price = Double.parseDouble(String.valueOf(etPrice.getText().subSequence(1, etPrice.getText().length())));
                 int quantity = Integer.parseInt(String.valueOf(spQuantity.getSelectedItemPosition() + 1));
                 isTaxed = cbxIsTaxed.isChecked();
 
@@ -152,9 +154,11 @@ public class MainActivity extends AppCompatActivity
                 btnRemove.setVisibility(View.VISIBLE);
                 btnEdit.setVisibility(View.VISIBLE);
                 //set fields of form with item fields from the cart object's list
-                etDescription.setText(cart.getItems().get(index).getDescription());
-                etPrice.setText(String.valueOf(cart.getItems().get(index).getPrice()));
-                spQuantity.setSelection(cart.getItems().get(index).getQuantity() - 1);
+                Item item = cart.getItems().get(index);
+                etDescription.setText(item.getDescription());
+                NumberFormat formatter = NumberFormat.getCurrencyInstance();
+                etPrice.setText(formatter.format(item.getPrice()));
+                spQuantity.setSelection(item.getQuantity() - 1);
                 cbxIsTaxed.setChecked(isTaxed);
 
                 selectedIndex = index;

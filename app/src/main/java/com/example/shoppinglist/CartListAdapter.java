@@ -91,7 +91,7 @@ public class CartListAdapter extends ArrayAdapter<Item>
         lastPosition = position;
 
         holder.tvDescription.setText(item.getDescription());
-        holder.tvPrice.setText(item.getTotalPrice());
+        holder.tvPrice.setText(item.getFormattedTotalPrice());
         holder.tvQuantity.setText(item.getFormattedQuantity());
         if(item.isTaxed())
         {
