@@ -44,6 +44,12 @@
             android:layout_height="24dp"
             android:gravity="center"
             android:textColor="@android:color/primary_text_dark" />
+        <TextView
+            android:id="@+id/tvDateCreated"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:gravity="center"
+            android:textColor="@android:color/primary_text_dark" />
     </LinearLayout>
 
 
