@@ -57,7 +57,7 @@
                 android:text="@string/cbxIsTaxedText"
                 android:textAlignment="gravity"
                 android:textColor="@android:color/primary_text_dark"
-                android:textIsSelectable="true"
+                android:focusableInTouchMode="false"
                 tools:text="@string/cbxIsTaxedText" />
 
         </LinearLayout>
