@@ -82,6 +82,6 @@ public class Cart
     public String toString()
     {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        return "Total cost: " + formatter.format(total);
+        return formatter.format(total);
     }
 }

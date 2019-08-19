@@ -14,6 +14,7 @@
     <string name="quantity">Quantity: </string>
     <string name="isTaxed">Taxed: </string>
     <string name="remove"> </string>
+    <string name="shoppingCart">shoppingCart</string>
 
     <string-array name="entries">
         <item>1</item>
